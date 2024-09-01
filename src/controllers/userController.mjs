@@ -1,4 +1,4 @@
-import CustomNotFoundError from "../src/CustomNotFoundError.mjs";
+import CustomNotFoundError from "../CustomNotFoundError.mjs";
 
 import asyncHandler from "express-async-handler";
 
