@@ -17,6 +17,10 @@ app.use(myMiddleware);
 
 app.get("/", (req, res) => res.send("Hi" + req.customProperty));
 
+app.use((err, req, res, next) => {
+    console.error(err);
+    res.status(500).send(err);
+})
 
 app.listen(process.env.PORT, () => {
     console.log(`Server listening on port ${process.env.PORT}`);
