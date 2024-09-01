@@ -1,5 +1,6 @@
-const getUserById = async (req, res) => {
-    try {
+import asyncHandler from "express-async-handler";
+
+const getUserById = asyncHandler(async (req, res) => {
         const userId = req.params.id;
     
         const user = await someDBQueryToGetUser(userId);
@@ -10,12 +11,7 @@ const getUserById = async (req, res) => {
         }
     
         res.send(`User found: ${user.name}`);
-
-    } catch (err) {
-        console.error("Error retrieving user: ", err);
-        res.status(500).send("Internal server Error");
-    }
-}
+})
 
 async function someDBQueryToGetUser(userId) {
     return { name: "Figby" };
