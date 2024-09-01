@@ -1,3 +1,5 @@
+import CustomNotFoundError from "../src/CustomNotFoundError.mjs";
+
 import asyncHandler from "express-async-handler";
 
 const getUserById = asyncHandler(async (req, res) => {
@@ -6,8 +8,7 @@ const getUserById = asyncHandler(async (req, res) => {
         const user = await someDBQueryToGetUser(userId);
     
         if (!user) {
-            res.status(404).send("User not found");
-            return;
+            throw new CustomNotFoundError("User not found");
         }
     
         res.send(`User found: ${user.name}`);
