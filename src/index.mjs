@@ -10,7 +10,10 @@ function myMiddleware(req, res, next) {
     next();
 }
 
-app.get("/", myMiddleware, (req, res) => res.send("Hi" + req.customProperty));
+app.use(myMiddleware);
+
+app.get("/", (req, res) => res.send("Hi" + req.customProperty));
+
 
 app.listen(process.env.PORT, () => {
     console.log(`Server listening on port ${process.env.PORT}`);
