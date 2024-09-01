@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Figby222/node-controllers/issues"
   },
-  "homepage": "https://github.com/Figby222/node-controllers#readme"
+  "homepage": "https://github.com/Figby222/node-controllers#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
 }
